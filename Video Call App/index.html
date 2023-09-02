@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="style.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Web RTC</title>
+		<script type="module" defer src="/main.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="call">
+				<h3>Local</h3>
+				<div class="vid-cont">
+					<video id="webcamVideo" autoplay playsinline></video>
+				</div>
+			</div>
+			<div class="call">
+				<h3>Remote</h3>
+				<div class="vid-cont">
+					<video id="remoteVideo" autoplay playsinline></video>
+				</div>
+			</div>
+		</div>
+
+		<button id="webcamButton">Start webcam</button>
+		<h2>Create a new Call</h2>
+		<button id="callButton" >Call</button>
+		<input type="text" id="callInput" />
+		<div id="hangupButton">Hangup</div>
+		<button id="answerButton" >Answer</button>
+	</body>
+</html>
