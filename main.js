@@ -31,13 +31,28 @@ const firestore = getFirestore(app);
 
 const servers = {
 	iceServers: [
-		// {
-		// 	urls: ["stun:stun1.1.google.com:19302", "stun:stun2.1.google.com:19302"],
-		// },
 		{
-			urls: "turn:openrelay.metered.ca:80",
-			username: "openrelayproject",
-			credential: "openrelayproject",
+			urls: "stun:stun.relay.metered.ca:80",
+		},
+		{
+			urls: "turn:a.relay.metered.ca:80",
+			username: "7b416dcd7cd947255bb3e582",
+			credential: "XGzw9cFhLcU7ebvI",
+		},
+		{
+			urls: "turn:a.relay.metered.ca:80?transport=tcp",
+			username: "7b416dcd7cd947255bb3e582",
+			credential: "XGzw9cFhLcU7ebvI",
+		},
+		{
+			urls: "turn:a.relay.metered.ca:443",
+			username: "7b416dcd7cd947255bb3e582",
+			credential: "XGzw9cFhLcU7ebvI",
+		},
+		{
+			urls: "turn:a.relay.metered.ca:443?transport=tcp",
+			username: "7b416dcd7cd947255bb3e582",
+			credential: "XGzw9cFhLcU7ebvI",
 		},
 	],
 	iceCandidatePoolSize: 10,
