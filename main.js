@@ -34,6 +34,11 @@ const servers = {
 		{
 			urls: ["stun:stun1.1.google.com:19302", "stun:stun2.1.google.com:19302"],
 		},
+		{
+            urls: 'turn:openrelay.metered.ca:80',
+            username: 'openrelayproject',
+            credential: 'openrelayproject'
+        }
 	],
 	iceCandidatePoolSize: 10,
 };
@@ -190,7 +195,7 @@ pc.ontrack = (event) => {
 	console.log("Received remote tracks:", event.streams);
 	if (event.streams && event.streams[0]) {
 		remoteVideo.srcObject = event.streams[0];
-		console.log(remoteVideo	);
+		console.log(remoteVideo);
 	}
 	console.log("Hello");
 };
