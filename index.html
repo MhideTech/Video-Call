@@ -16,19 +16,24 @@
 		></script>
 	</head>
 	<body>
-		<div class="container">
-			<div class="call">
-				<h3>Local</h3>
-				<div class="vid-cont">
-					<video id="webcamVideo" autoplay playsinline></video>
+		<div class="wrapper">
+			
+				<div class="remote"> 
+					<div class="vid-cont">
+						<video id="remoteVideo" autoplay playsinline></video>
+					</div>
+					<div class="local">
+						<div class="vid-cont">
+							<video id="webcamVideo" autoplay playsinline></video>
+						</div>
+					</div>
+					<div class="btns">
+						<div class="call" id="callButton"><i class="fa-solid fa-phone-volume"></i></div>
+						<div class="call" id="hangupButton"><i class="bi bi-telephone-inbound-fill"></i></div>
+						<div class="call" id="answerButton"><i class="fa-solid fa-phone-volume"></i></div>
+						<input type="text" id="callInput" />
+					</div>
 				</div>
-			</div>
-			<div class="call">
-				<h3>Remote</h3>
-				<div class="vid-cont">
-					<video id="remoteVideo" autoplay playsinline></video>
-				</div>
-			</div>
 		</div>
 
 		<div class="btns">
