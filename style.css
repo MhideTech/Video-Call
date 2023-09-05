@@ -35,22 +35,22 @@
 
 .remote {
 	height: 900px;
-	width: 1400px;
+	width: 90%;
 	position: relative;
 	background-color: blue;
 	border-radius: 20px;
 }
 
 .local{
-	height: 300px;
-	width: 300px;
+	height: 40%;
+	width: 30%;
 	background-color: red;
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
 	border-radius: 20px;
 }
-.wrapper .container .remote .btns{
+.wrapper .remote .btns{
 	width: 60%;
 	height: 100px;
 	background-color: rgba(0, 0, 0, 0.6);
@@ -62,7 +62,7 @@
 	align-items: center;
 	border-bottom-left-radius: 20px;
 }
-.wrapper .container .remote .btns .call{
+.wrapper .remote .btns .call{
 	width: 70px;
 	height: 70px;
 	background-color: yellow;
@@ -73,16 +73,16 @@
 	margin: 0px 10px;
 	cursor: pointer;
 }
-.wrapper .container .remote .btns .call:hover{
+.wrapper .remote .btns .call:hover{
 	transform: scale(.95);
 	transition: .2s;
 }
-.wrapper .container .remote .btns input{
+.wrapper .remote .btns input{
 	padding: 10px 30px 10px 10px;
 	font-size: 1.3rem;
 	margin: 0px 0px 0px 20px;
 }
-.wrapper .container .remote .btns input:focus{
+.wrapper .remote .btns input:focus{
 	outline: none;
 	border: none;
 }
