@@ -6,34 +6,33 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Web RTC</title>
 		<script type="module" defer src="/main.js"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-		<script src="https://kit.fontawesome.com/a0b5b0f1de.js" crossorigin="anonymous"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+		/>
+		<script
+			src="https://kit.fontawesome.com/a0b5b0f1de.js"
+			crossorigin="anonymous"
+		></script>
 	</head>
 	<body>
-		<div class="wrapper">
-			<div class="container">
-				<div class="remote"> 
-					<div class="vid-cont">
-						<video id="remoteVideo" autoplay playsinline></video>
-					</div>
-					<div class="local">
-						<div class="vid-cont">
-							<video id="webcamVideo" autoplay playsinline></video>
-						</div>
-					</div>
-					<div class="btns">
-						<div class="call" id="callButton"><i class="fa-solid fa-phone-volume"></i></div>
-						<div class="call" id="hangupButton"><i class="bi bi-telephone-inbound-fill"></i></div>
-						<div class="call" id="answerButton"><i class="fa-solid fa-phone-volume"></i></div>
-						<input type="text" id="callInput" />
-					</div>
+		<div class="container">
+			<div class="call">
+				<h3>Local</h3>
+				<div class="vid-cont">
+					<video id="webcamVideo" autoplay playsinline></video>
+				</div>
+			</div>
+			<div class="call">
+				<h3>Remote</h3>
+				<div class="vid-cont">
+					<video id="remoteVideo" autoplay playsinline></video>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="btns">
 			<button id="webcamButton">Start webcam</button>
 		</div>
-		
 	</body>
 </html>
