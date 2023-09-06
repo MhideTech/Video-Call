@@ -63,7 +63,8 @@ let pc = new RTCPeerConnection(servers);
 let localStream = null;
 let remoteStream = null;
 
-const webcamButton = document.querySelector("#webcamButton");
+const cameraMute = document.querySelector("#muteVid");
+const audioMute = document.querySelector("#muteSound");
 const webCamVideo = document.querySelector("#webcamVideo");
 const callButton = document.querySelector("#callButton");
 const hangupButton = document.querySelector("#hangupButton");
@@ -76,6 +77,8 @@ console.log(tipCont, tipMessage);
 const state = {
 	online: true,
 	error: "",
+	vidActive: false,
+	mic: false,
 };
 
 const openWebcam = async function () {
@@ -84,6 +87,9 @@ const openWebcam = async function () {
 			video: 1,
 			audio: 1,
 		});
+		cameraMute.classList.add("active");
+		audioMute.classList.add("active");
+
 		remoteStream = new MediaStream();
 		localStream.getTracks().forEach((track) => {
 			pc.addTrack(track, localStream);
@@ -97,6 +103,8 @@ const openWebcam = async function () {
 
 		webCamVideo.srcObject = localStream;
 		remoteVideo.srcObject = remoteStream;
+		state.vidActive = true;
+		state.mic = true;
 	} catch (err) {
 		throw new Error(`${err.message}: Could not open webcam.`);
 	}
@@ -304,7 +312,7 @@ const showMessage = function (message) {
 	tipCont.classList.add("show");
 	setTimeout(() => {
 		tipCont.classList.remove("show");
-	}, 10000);
+	}, 3000);
 };
 
 const showNotification = function (title, message, code) {
@@ -331,9 +339,58 @@ const changeCallHref = function () {
 	}
 };
 
+const toggleCamera = function () {
+	if (state.vidActive) {
+		localStream.getVideoTracks().forEach((track) => {
+			track.enabled = false; // This disables the camera
+		});
+
+		cameraMute.classList.remove("active");
+
+		// Unmute the camera
+
+		state.vidActive = false;
+		showMessage("Camera Has been turned Off");
+	} else {
+		localStream.getVideoTracks().forEach((track) => {
+			track.enabled = true; // This enables the camera
+		});
+		state.vidActive = true;
+		cameraMute.classList.add("active");
+		showMessage("Camera has been turned on");
+	}
+};
+
+const toggleMicrophone = function () {
+	if (state.mic) {
+		// Mute the microphone
+		localStream.getAudioTracks().forEach((track) => {
+			track.enabled = false; // This mutes the track
+		});
+		state.mic = false;
+		audioMute.classList.remove("active");
+		showMessage("Mic has been turned off");
+	} else {
+		// Unmute the microphone
+		localStream.getAudioTracks().forEach((track) => {
+			track.enabled = true; // This unmutes the track
+		});
+		state.mic = true;
+		audioMute.classList.add("active");
+		showMessage("Mic has been turned on.");
+	}
+};
+
 const hangup = function () {
+	localStream.getVideoTracks().forEach((track) => {
+		track.enabled = false;
+	});
 	// Stop local video and audio streams
 	localStream = null;
+	state.vidActive = false;
+	state.mic = false;
+	audioMute.classList.remove("active");
+	cameraMute.classList.remove("active");
 
 	remoteStream = null;
 	webCamVideo.srcObject = null;
@@ -342,6 +399,7 @@ const hangup = function () {
 	// Close the RTCPeerConnection (WebRTC)
 	pc.close();
 	pc = new RTCPeerConnection(servers);
+	navig;
 
 	// Inform the other participant(s) and perform cleanup
 	// Update UI to show call has ended
@@ -350,6 +408,8 @@ const hangup = function () {
 // Check internet connection when the page loads
 checkInternetConnection();
 
+audioMute.addEventListener("click", toggleMicrophone);
+cameraMute.addEventListener("click", toggleCamera);
 window.addEventListener("online", checkInternetConnection);
 window.addEventListener("offline", checkInternetConnection);
 window.addEventListener("load", function () {
