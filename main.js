@@ -71,6 +71,7 @@ const hangupButton = document.querySelector("#hangupButton");
 const remoteVideo = document.querySelector("#remoteVideo");
 const tipCont = document.querySelector(".tip");
 const tipMessage = tipCont.querySelector(".message");
+const tipCloseBtn = document.querySelector(".closeButton");
 
 console.log(tipCont, tipMessage);
 
@@ -312,7 +313,7 @@ const showMessage = function (message) {
 	tipCont.classList.add("show");
 	setTimeout(() => {
 		tipCont.classList.remove("show");
-	}, 3000);
+	}, 5000);
 };
 
 const showNotification = function (title, message, code) {
@@ -404,6 +405,9 @@ const hangup = function () {
 	// Inform the other participant(s) and perform cleanup
 	// Update UI to show call has ended
 };
+const closeTip = function () {
+	tipCont.classList.remove("show");
+};
 
 // Check internet connection when the page loads
 checkInternetConnection();
@@ -420,4 +424,5 @@ window.addEventListener("load", function () {
 // webcamButton.addEventListener("click", openWebcam);
 callButton.addEventListener("click", createCall);
 hangupButton.addEventListener("click", hangup);
+tipCloseBtn.addEventListener("click", closeTip);
 changeCallHref();
