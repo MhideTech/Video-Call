@@ -8,6 +8,7 @@
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
+	background-color: rgb(77, 77, 77);
 }
 
 * {
@@ -16,7 +17,7 @@
 	margin: 0;
 }
 
-.wrapper{
+.wrapper {
 	width: 100%;
 	height: 100vh;
 	display: flex;
@@ -34,23 +35,24 @@
 } */
 
 .remote {
-	height: 900px;
+	height: 85%;
 	width: 90%;
 	position: relative;
-	background-color: blue;
+	background-color: #1c1d21;
 	border-radius: 20px;
 }
 
-.local{
+.local {
 	height: 40%;
-	width: 30%;
-	background-color: red;
+	max-width: 30%;
+	background-color: #07728764;
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
 	border-radius: 20px;
+	padding: auto;
 }
-.wrapper .remote .btns{
+.wrapper .remote .btns {
 	width: 60%;
 	height: 100px;
 	background-color: rgba(0, 0, 0, 0.6);
@@ -58,46 +60,96 @@
 	bottom: 0px;
 	left: 0px;
 	display: flex;
-	justify-content: center;
+	/* justify-content: center; */
 	align-items: center;
 	border-bottom-left-radius: 20px;
 }
-.wrapper .remote .btns .call{
+.wrapper .remote .btns .call {
 	width: 70px;
 	height: 70px;
-	background-color: yellow;
+	background-color: #3a4e48;
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin: 0px 10px;
 	cursor: pointer;
+	fill: white;
+	stroke: white;
+	color: white;
 }
-.wrapper .remote .btns .call:hover{
-	transform: scale(.95);
-	transition: .2s;
+.wrapper .remote .btns .call:hover {
+	transform: scale(0.95);
+	transition: 0.2s;
 }
-.wrapper .remote .btns input{
-	padding: 10px 30px 10px 10px;
-	font-size: 1.3rem;
-	margin: 0px 0px 0px 20px;
+.wrapper .remote .btns input {
+	width: 100px;
 }
-.wrapper .remote .btns input:focus{
+.wrapper .remote .btns input:focus {
 	outline: none;
 	border: none;
 }
 
-/* .vid-cont {
-	width: 100%;
-	height: 90%;
-	background-color: rgba(15, 33, 197, 0.167);
-} */
-
-.vid-cont video {
+.vid-cont {
 	width: 100%;
 	height: 100%;
 }
 
 video {
+	width: 100%;
+	height: 100%;
+	/* border-radius: 15px; */
+}
+
+video:nth-child(2) {
+	background-color: #077187;
+}
+
+video {
 	transform: scaleX(-1);
+}
+
+.tip {
+	position: fixed;
+	right: 10px;
+	bottom: 15px;
+	width: 301px;
+	/* max-width: 200px; */
+	height: fit-content;
+	background-color: white;
+	border-radius: 5px;
+	animation-name: slideIn;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	display: none;
+	align-items: center;
+	padding: 15px 0px;
+	transition: .3s;
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.tip .close_btn {
+	position: absolute;
+	right: 5px;
+	font-size: 25px;
+	cursor: pointer;
+	top: 0px;
+	padding: 0px 10px;
+}
+
+.tip.show {
+	display: flex;
+	transition: 0.3s;
+}
+
+.tip .message {
+	margin-left: 10px;
 }
