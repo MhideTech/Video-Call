@@ -66,8 +66,6 @@ let remoteStream = null;
 const webcamButton = document.querySelector("#webcamButton");
 const webCamVideo = document.querySelector("#webcamVideo");
 const callButton = document.querySelector("#callButton");
-const callInput = document.querySelector("#callInput");
-const answerButton = document.querySelector("#answerButton");
 const hangupButton = document.querySelector("#hangupButton");
 const remoteVideo = document.querySelector("#remoteVideo");
 const tipCont = document.querySelector(".tip");
@@ -100,7 +98,7 @@ const openWebcam = async function () {
 		webCamVideo.srcObject = localStream;
 		remoteVideo.srcObject = remoteStream;
 	} catch (err) {
-		throw err;
+		throw new Error(`${err.message}: Could not open webcam.`);
 	}
 };
 
@@ -354,10 +352,6 @@ checkInternetConnection();
 
 window.addEventListener("online", checkInternetConnection);
 window.addEventListener("offline", checkInternetConnection);
-answerButton.addEventListener("click", function () {
-	const number = callInput.value.split("#")[1];
-	answerCall(number);
-});
 window.addEventListener("load", function () {
 	if (this.window.location.href.split("#")[1]?.length > 2) {
 		answerCall();

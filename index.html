@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="style.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Web RTC</title>
+		<title>Ap Connect</title>
 		<script type="module" defer src="/main.js"></script>
 		<link
 			rel="stylesheet"
@@ -16,31 +16,54 @@
 		></script>
 	</head>
 	<body>
-		<div class="wrapper">
-			
-				<div class="remote"> 
-					<div class="vid-cont">
-						<video id="remoteVideo" autoplay playsinline></video>
-						<!-- <i class="fa-solid fa-circle-notch fa-spin"></i> -->
-					</div>
-					<div class="local">
-						<div class="vid-cont">
-							<video id="webcamVideo" autoplay playsinline></video>
-						</div>
-					</div>
-					<div class="btns">
-						<div class="call" id="callButton"><i class="fa-solid fa-phone-volume"></i></div>
-						<div class="call" id="hangupButton"><i class="bi bi-telephone-inbound-fill"></i></div>
-						<div class="call" id="answerButton"><i class="fa-solid fa-phone-volume"></i></div>
-						<input type="text" id="callInput" />
-					</div>
-
-					<div class="tip">
-						<p class="message">
-							Call link Copied (5271278r124124879124)
-						</p>
-					</div>
+		<div class="container">
+			<div class="bigStream">
+				<video id="remoteVideo" autoplay playsinline></video>
+			</div>
+			<div class="smallStream">
+				<video id="webcamVideo" autoplay playsinline></video>
+			</div>
+			<div class="btns">
+				<div class="call" id="callButton">
+					<i class="fa-solid fa-phone-volume"></i>
 				</div>
+				<div class="call" id="hangupButton">
+					<i class="bi bi-telephone-inbound-fill"></i>
+				</div>
+			</div>
+
+			<div class="tip">
+				<p class="message">Call link Copied (5271278r124124879124)</p>
+			</div>
 		</div>
 	</body>
 </html>
+
+<!-- 
+<div class="wrapper">
+	<div class="remote">
+		<div class="vid-cont">
+			<video id="remoteVideo" autoplay playsinline></video>
+			<i class="fa-solid fa-circle-notch fa-spin"></i>
+		</div>
+		<div class="local">
+			<div class="vid-cont">
+				
+			</div>
+		</div>
+		<div class="btns">
+			<div class="call" id="callButton">
+				<i class="fa-solid fa-phone-volume"></i>
+			</div>
+			<div class="call" id="hangupButton">
+				<i class="bi bi-telephone-inbound-fill"></i>
+			</div>
+			<div class="call" id="answerButton">
+				<i class="fa-solid fa-phone-volume"></i>
+			</div>
+			<input type="text" id="callInput" />
+		</div>
+
+		
+	</div>
+</div> -->
