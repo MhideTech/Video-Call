@@ -85,10 +85,16 @@ video {
 	bottom: 20px;
 	color: white;
 	padding: 25px 10px;
-	font-size: 16px;
+	font-size: 15px;
 	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 	display: none;
 	transition: 0.3s;
+}
+
+@media screen and (max-width:576px) {
+	.tip {
+		font-size: 11px;
+	}
 }
 
 .tip.show {
