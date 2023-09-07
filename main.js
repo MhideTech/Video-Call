@@ -163,7 +163,7 @@ const createCall = async function () {
 
 		// Store the offer in Firestore
 		await Promise.race([setDoc(callDocRef, { offer }), timeout(10)]); // Use setDoc to store the offer as an object
-		showMessage(`Call link: \n ${link}#${callDocRef.id}`);
+		showMessage(`${link}#${callDocRef.id}`);
 		// Listen for changes in Firestore document
 		onSnapshot(callDocRef, (snapshot) => {
 			// Listen to callDocRef instead of callsCollection
